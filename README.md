@@ -34,7 +34,7 @@ Portanto, é necessário informar os dados do banco no arquivo de configuração
 Também é possível criar a base de dados manualmente através de um script de criação de banco de dados. Nesta base de dados, também são realizados registros de filmes e discos. [O schema de banco de dados é disponibilizado(schema.sql).
 ```
 
-### Criação de Usuários
+### Inserir Usuários
 
 **URL (POST):**
 
@@ -46,15 +46,14 @@ http://127.0.0.1:3000/users
 
 ```json
 {
-  "name": "Fulano",
-  "email": "fulano@gmail.com",
-  "password": "1234567"
+  "name": "Andrey",
+  "email": "a.elyan.s@gmail.com",
+  "password": "123456"
 }
 ```
 
 ### Update de Usuários
 
-Diversos Updates podem ser realizados em usuários. O usuário, inicialmente, pode realizar a edição do nome e email:
 
 **URL (PUT):**
 
@@ -62,51 +61,52 @@ Diversos Updates podem ser realizados em usuários. O usuário, inicialmente, po
 http://127.0.0.1:3000/users
 ```
 
-**Body da Requisição:**
+**Body:**
 
 ```json
 {
-  "name": "Fulano",
-  "email": "fulano@gmail.com"
+  "name": "Andrey",
+  "email": "a.elyan.s@gmail.com"
 }
 ```
 
-No entanto, é possível também realizar o update de password do usuário. No entanto, neste caso o usuário precisa informar o password atual, novo password e uma confirmação de password:
+É possível realizar a atualização de senha do usuário. 
+O usuário precisará informar o password atual, novo password e uma confirmação deste password:
 
 **URL (PUT):**
 
 ```bash
-http://127.0.0.1: 3000/users
+http://127.0.0.1:3000/users
 ```
 
-**Body da Requisição:**
+**Body:**
 
 ```json
 {
-  "name": "Fulano",
-  "email": "fulano@gmail.com",
+  "name": "Andrey",
+  "email": "a.elyan.s@gmail.com",
   "oldPassword": "123456",
-  "password": "123456789",
-  "password": "123456789"
+  "password": "10203040",
+  "password": "10203040"
 }
 ```
 
-## Sessão de Usuário
+## Sessão do Usuário
 
 A sessão de usuários é definida
 
 **URL (PUT):**
 
 ```bash
-http://127.0.0.1: 3000/sessions
+http://127.0.0.1:3000/sessions
 ```
 
-**Body da Requisição:**
+**Body:**
 
 ```json
 {
-  "email": "fulano@gmail.com",
-  "password": "123456789"
+  "email": "a.elyan.s@gmail.com",
+  "password": "10203040"
 }
 ```
 
@@ -116,16 +116,14 @@ http://127.0.0.1: 3000/sessions
 {
   "user": {
     "id": 1,
-    "name": "Fulano",
-    "email": "fulano@gmail.com"
+    "name": "Andrey",
+    "email": "a.elyan.s@@gmail.com"
   },
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTYyMjU3ODE2LCJleHAiOjE1NjI4NjI2MTZ9.uVTk8oMxQ5tdnG5RG87a7Kawgi0rhyxBcgxcyZQQ8T8"
 }
 ```
 
-## Aluguel de Filmes
-
-Considerando que apenas usuários logados no sistema podem fazer o aluguel de filmes, é necessário enviar o Token de autenticação no corpo da requisição. No corpo da requisição, envíamos o id do disco que o usuário deseja alugar. O id do usuário é informado automaticamente através do token enviado.
+## Aluguel
 
 **URL (POST):**
 
@@ -143,7 +141,7 @@ http://127.0.0.1:3000/rent
 
 ## Devolução de Filmes
 
-A devolução do disco é realizada através do método PUT. Quando um usuário devolve o filme alugado, o campo returned_at é atulizado automaticamente com o horário da requisição.
+O campo returned_at é atulizado automaticamente com o horário da devolução.
 
 **URL (PUT):**
 
@@ -151,7 +149,7 @@ A devolução do disco é realizada através do método PUT. Quando um usuário 
 http://127.0.0.1:3000/rent
 ```
 
-**Body da Requisição:**
+**Body:**
 
 ```json
 {
