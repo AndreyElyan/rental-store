@@ -20,7 +20,7 @@ A tabela de aluguéis, irá gravar a chave de identificação do filme alugado.
   a porta 5432 esteja liberada e que o comando "docker run --name postgresDB -p 5432:5432 -d -t kartoza/postgis"
   seja rodado e finalizado corretamente. (opcional)
 
-Os dados da API foi trabalhado encima do Sequelize. 
+Os dados da API foram trabalhados encima do Sequelize. 
 Portanto, é necessário informar os dados do banco no arquivo de configuração em  /Config/database.js.
 
 ```
