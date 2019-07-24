@@ -34,4 +34,8 @@ Portanto, é necessário informar os dados do banco no arquivo de configuração
 Também é possível criar a base de dados manualmente através de um script de criação de banco de dados. Nesta base de dados, também são realizados registros de filmes e discos. [O schema de banco de dados é disponibilizado(schema.sql).
 ```
 
+Especificação Técnica de utilização e desenvolvimento em :
+
+https://github.com/AndreyElyan/rental-store/blob/master/Especifica%C3%A7%C3%A3o%20T%C3%A9cnica%20-%20Rent-Store.pdf
+
 
