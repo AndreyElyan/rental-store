@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "nodemon src/server.js",
-    "license": "and"
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -22,5 +23,12 @@
     "prettier": "^1.18.2",
     "sequelize-cli": "^5.5.0",
     "sucrase": "^3.10.1"
-  }
+  },
+  "name": "rent-store",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "keywords": [],
+  "author": "Andrey Elyan",
+  "description": "Sistema backend locadora",
+  "license": "ISC"
 }

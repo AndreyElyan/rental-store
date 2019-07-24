@@ -1,3 +1,4 @@
+// tabela de rents
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('rents', {

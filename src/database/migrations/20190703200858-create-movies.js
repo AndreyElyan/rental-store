@@ -1,3 +1,4 @@
+// tabela de filmes
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('movies', {

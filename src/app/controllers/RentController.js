@@ -13,22 +13,30 @@ class RentController {
 
     const { disk_id } = req.body;
 
-    const rent = await Rent.create({
-      user_id: req.userId,
-      disk_id,
-      rented_at: Date.now(),
-      canceled_at: null,
-    });
-    return res.json(rent);
+    try {
+      const rent = await Rent.create({
+        user_id: req.userId,
+        disk_id,
+        rented_at: Date.now(),
+        canceled_at: null,
+      });
+      return res.json(rent);
+    } catch (err) {
+      return res.status(500).json({ message: 'Erro Internal' });
+    }
   }
 
   async update(req, res) {
-    const { id } = req.params;
+    try {
+      const { id } = req.params;
 
-    const rent = await Rent.findOne({ where: { id } });
+      const rent = await Rent.findOne({ where: { id } });
 
-    await rent.update({ returned_at: Date.now() });
-    return res.json({ Response: 'Movie returned' });
+      await rent.update({ returned_at: Date.now() });
+      return res.json({ Response: 'Movie returned' });
+    } catch (err) {
+      return res.status(500).json({ message: 'Erro Internal' });
+    }
   }
 }
 

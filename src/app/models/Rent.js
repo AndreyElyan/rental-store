@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Rent extends Model {
+export default class Rent extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -19,5 +19,3 @@ class Rent extends Model {
     this.belongsTo(models.Disk, { foreignKey: 'disk_id' });
   }
 }
-
-export default Rent;

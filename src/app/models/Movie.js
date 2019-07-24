@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Movie extends Model {
+export default class Movie extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -18,5 +18,3 @@ class Movie extends Model {
     this.hasMany(models.Disk, { foreignKey: 'disk_id' });
   }
 }
-
-export default Movie;
